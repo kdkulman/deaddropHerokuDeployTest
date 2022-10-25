@@ -9,6 +9,7 @@
 
 .App-header {
   background-color: #282c34;
+  background-image: linear-gradient(rgb(178, 178, 236), rgb(56, 73, 79));
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -16,7 +17,6 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-  background-image: linear-gradient(rgb(178, 178, 236), rgb(56, 73, 79));
 }
 
 .App-link {
