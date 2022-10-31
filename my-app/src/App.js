@@ -1,8 +1,9 @@
 import logo from './logo.svg';
 import * as React from 'react';
-import { createMessageComponent } from './Components/createMessageComponent.js';
+import {createMessageTextField} from './Components/createMessageTextField.js';
 import './CSS/App.css';
 import Grid from '@mui/material/Grid'; // Grid version 1
+import { sendMessageButton } from './Components/sendMessageButton.js';
 
 //This will hold the layout for the project.
 //We should be able to put conditional statements 
@@ -23,7 +24,8 @@ function App() {
           </Grid>
 
           <Grid item xs={12} color='white'>
-            {createMessageComponent()}
+            {createMessageTextField()}
+            {sendMessageButton()}
           </Grid>
 
           <Grid item xs={12}>
