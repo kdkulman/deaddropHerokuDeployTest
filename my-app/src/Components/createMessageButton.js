@@ -1,12 +1,12 @@
 import * as React from 'react';
 import AddIcon from '@mui/icons-material/Add';
 import Fab from '@mui/material/Fab';
+// import {createMessageTextField} from './Components/createMessageTextField.js';
 
 export function createMessageButton() {
     return (
         <div>
-          <Fab onClick={createMessageTextField()} color="red" aria-label="add">
-            
+          <Fab color="red" aria-label="add">
             <AddIcon />
             
           </Fab>
