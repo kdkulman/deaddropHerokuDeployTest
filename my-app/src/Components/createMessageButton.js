@@ -6,7 +6,7 @@ import Fab from '@mui/material/Fab';
 export function createMessageButton() {
     return (
         <div>
-          <Fab color="red" aria-label="add">
+          <Fab color="black" aria-label="add">
             <AddIcon />
             
           </Fab>

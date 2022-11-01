@@ -29,7 +29,7 @@ function App() {
             {sendMessageButton()}
           </Grid>
 
-          <Grid item xs={12} color='red'> {/* Jashans stuff*/}
+          <Grid item xs={12} color='black'> {/* Jashans stuff*/}
           {createMessageButton()}
           </Grid>
         </Grid>
