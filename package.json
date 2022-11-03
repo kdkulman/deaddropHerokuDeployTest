@@ -1,15 +1,17 @@
 {
-    "name": "node-example",
+    "name": "dead-drop.app",
     "version": "1.0.0",
     "description": "This example is so cool.",
+    "engines": {
+      "node": "10.x"
+    },
     "main": "web.js",
     "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1",
-      "start": "node server",
+      "start": "node client",
       "build": "cd client/ && npm install && npm run build"
     },
     "keywords": [
-      "example",
+      "node",
       "heroku"
     ],
     "author": "Kevin Kulman",
