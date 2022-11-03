@@ -19,7 +19,7 @@ http.createServer(function (req, res) {
   res.end('Hello World!');
 }).listen(8080);
 
-let myHost = 'host: us-cdbr-east-06.cleardb.net';
+let myHost = 'us-cdbr-east-06.cleardb.net';
 let myUser = 'bfccc3caa69342';
 let myPassword = 'c8f9cfd4';
 var con = mysql.createConnection({
