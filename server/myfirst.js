@@ -32,3 +32,18 @@ var con = mysql.createConnection({
     if (err) throw err;
     console.log("Connected!");
   });
+
+
+const express = require('express')
+const app = express()
+const port = 3000
+
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
+
+app.use('/client/build', express.static('./client/build/static'));
