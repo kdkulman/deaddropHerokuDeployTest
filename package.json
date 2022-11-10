@@ -2,9 +2,9 @@
     "name": "dead-drop.app",
     "version": "1.0.0",
     "description": "This example is so cool.",
-    "main": "index.js",
+    "main": "web.js",
     "scripts": {
-        "start": "node client"
+        "start": "cd client && npm start"
     },
     "keywords": [
         "node",
