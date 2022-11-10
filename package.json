@@ -6,6 +6,10 @@
     "scripts": {
         "start": "cd client && npm start"
     },
+    "engines": {
+        "npm": "5.7.1",// here put your version
+        "node": "9.5.0" // here put your version
+    },
     "keywords": [
         "node",
         "heroku"
