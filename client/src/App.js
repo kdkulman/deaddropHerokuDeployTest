@@ -7,10 +7,6 @@ import { sendMessageButton } from './Components/sendMessageButton.js';
 import { createMessageButton } from './Components/createMessageButton.js';  
 import {fetchText} from './Components/sendMessageButton.js';
 
-//This will hold the layout for the project.
-//We should be able to put conditional statements 
-//To control which components are currently visible
-
 function App() {
   return (
     <div className="App">
@@ -22,7 +18,6 @@ function App() {
           justifyContent="space-around"
           alignItems="center">
           <Grid item xs={12}>
-            <h1> <img src={require('./logo.jpg')} width="150" height="120" /> </h1>
           </Grid>
 
           <Grid item xs={12} color='white'>

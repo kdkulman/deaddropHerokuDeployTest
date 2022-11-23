@@ -2,26 +2,29 @@ import * as React from 'react';
 import IconButton from '@mui/material/IconButton';
 import SendIcon from '@mui/icons-material/Send';
 
+
 //Get text from message box and send to database
 export function fetchText() {
-    const message = 'cheese' //document.getElementById("createMessageTextField").value;
+    let message = document.getElementById("createMessageTextField").value;
     console.log(message);
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Accept', 'application/json');
+    headers.append('Access-Control-Allow-Origin', 'http://localhost:5000');
+    headers.append('Access-Control-Allow-Credentials', 'true');
+    headers.append('GET', 'POST', 'OPTIONS');
 
-    //Send text to database post request
-    fetch(`https://localhost:5555/storeMessage`, {
+    fetch(`https://dead-drop-app-web-service.herokuapp.com/storeMessage`, {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ text : message }),
-    })
-    .then((result) => result.text())
-        .then((data) => {
-            console.log(data);
-        }
-    )
-    console.log("fetchText() called");
-
+        headers: headers,
+        body: JSON.stringify({ "text" : message })
+    }).then(response => {
+        document.getElementById("createMessageTextField").value = "";
+        console.log(response);
+    }).catch(error => {
+        console.log(error);
+    }
+    );
 
 }
 
