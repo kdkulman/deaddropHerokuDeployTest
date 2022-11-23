@@ -33,6 +33,10 @@ function App() {
           <Grid item xs={12} color='black'> {/* Jashans stuff*/}
           {createMessageButton()}
           </Grid>
+          
+          <Grid item xs={12} color='white'>
+            {createAnonymousLink()}
+          </Grid>
         </Grid>
         </div>
       </main>
