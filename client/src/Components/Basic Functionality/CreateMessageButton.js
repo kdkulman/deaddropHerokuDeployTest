@@ -34,7 +34,6 @@ export function CreateMessageButton() {
   } else {
     return (
       <div>
-        <CreateMessageTextField />
         <SendMessageButton />
       </div>
     );
