@@ -2,7 +2,6 @@ import * as React from 'react';
 import AddIcon from '@mui/icons-material/Add';
 import Fab from '@mui/material/Fab';
 import { useState } from "react";
-import { CreateMessageTextField } from './CreateMessageTextField.js';
 import { SendMessageButton } from './SendMessageButton.js';
 
 import ReactDOM from "react-dom/client";

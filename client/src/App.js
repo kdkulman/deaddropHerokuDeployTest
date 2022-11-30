@@ -1,14 +1,21 @@
 import logo from './logo.svg';
 import * as React from 'react';
-import {CreateMessageTextField} from './Components/Basic Functionality/CreateMessageTextField.js';
 import './CSS/App.css';
 import Grid from '@mui/material/Grid'; // Grid version 1
 import { CreateMessageButton } from './Components/Basic Functionality/CreateMessageButton.js';  
-import {fetchText} from './Components/Basic Functionality/SendMessageButton.js';
+import { PrimaryAppBar } from './Components/PrimaryAppBar.js';
+import { useState } from "react";
+import FunctionalityTabs from './Components/FunctionalityTabs';
 
 function App() {
-  return (
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [nickname, setNickname] = useState("");
+
+  return (    
     <div className="App">
+      <PrimaryAppBar />
+      <FunctionalityTabs />
       <main>
         <div>
         <Grid 

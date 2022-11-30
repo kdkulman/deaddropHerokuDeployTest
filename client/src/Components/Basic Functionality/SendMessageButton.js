@@ -4,7 +4,6 @@ import IconButton from '@mui/material/IconButton';
 import SendIcon from '@mui/icons-material/Send';
 import { TextField } from '@mui/material';
 import { CreateMessageButton } from './CreateMessageButton';
-import { CreateMessageTextField } from './CreateMessageTextField';
 
 
 //Get text from message box and send to database
@@ -46,6 +45,11 @@ export function SendMessageButton() {
     if (showButton) {
         return (
                 <div>
+                    <TextField  id="CreateMessageTextField" 
+                                label="Enter super secret message" 
+                                aria-label='empty textarea'
+                                variant="outlined" 
+                                style={{ backgroundColor: 'white' }}/>
                     <IconButton aria-label="send" 
                                 size="large"
                                 onClick={() => {
@@ -54,12 +58,6 @@ export function SendMessageButton() {
                                 }}>
                         <SendIcon fontSize="large" />
                     </IconButton>
-
-                    <TextField  id="CreateMessageTextField" 
-                                label="Enter super secret message" 
-                                aria-label='empty textarea'
-                                variant="outlined" 
-                                style={{ backgroundColor: 'white' }}/>
                 </div>
         )
     
