@@ -1,14 +1,17 @@
 import * as React from 'react';
 import Button from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
-import { createAnonymousLink } from './createMessageTextField';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import CloseIcon from '@mui/icons-material/Close';
 
-export default function PositionedSnackbar() {
+export function CreateAnonymousLink() {
   const [state, setState] = React.useState({
     open: false,
-    vertical: 'top',
-    horizontal: 'center',
+    vertical: 'bottom',
+    horizontal: 'left',
   });
+
   const { vertical, horizontal, open } = state;
 
   const handleClick = (newState) => () => {
@@ -19,84 +22,50 @@ export default function PositionedSnackbar() {
     setState({ ...state, open: false });
   };
 
-  // Creates snackbar at the bottom center of the page.
-  // Here we might be able to use this in order to add a link to it
+  // this is the button that will be clicked to show the snackbar
+  // this will position the snackbar at the bottom left of the screen
   const buttons = (
     <React.Fragment>
-      <Button
-        onClick={handleClick({
-          vertical: 'bottom',
-          horizontal: 'center',
-        })}
-      >
-        Bottom-Center
-      </Button>
-    </React.Fragment>
+      <Button onClick={handleClick({ vertical: 'bottom', horizontal: 'left' })}>Copy</Button>
+      </React.Fragment>
   );
 
+  // The messsage that will be displayed in the snackbar (the alert)
   return (
     <div>
-      {buttons}
+      <Box
+      sx={{
+        // make a component that is 100% of the screen
+        width: '100%',
+        height: '100%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+
+      // <Box sx={{ width: 500, height: 500, bgcolor: 'background.paper' }}>
+    >
+      <Paper
+      elevation={4}
+        sx={{
+          p: 2,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          width: '50%',
+          height: '100%',
+        }}
+    >
+        {buttons}
+    </Paper>
+    </Box>
       <Snackbar
         anchorOrigin={{ vertical, horizontal }}
         open={open}
         onClose={handleClose}
-        message="Link: "
+        message="Link copied to clipboard"
         key={vertical + horizontal}
       />
     </div>
   );
 }
-
-// This code below will be able to slide the message up from the bottom of the page and display the link
-
-// import * as React from 'react';
-// import Button from '@mui/material/Button';
-// import Snackbar from '@mui/material/Snackbar';
-// import Fade from '@mui/material/Fade';
-// import Slide from '@mui/material/Slide';
-// import Grow from '@mui/material/Grow';
-
-// function SlideTransition(props) {
-//   return <Slide {...props} direction="up" />;
-// }
-
-// function GrowTransition(props) {
-//   return <Grow {...props} />;
-// }
-
-// export default function TransitionsSnackbar() {
-//   const [state, setState] = React.useState({
-//     open: false,
-//     Transition: Fade,
-//   });
-
-//   const handleClick = (Transition) => () => {
-//     setState({
-//       open: true,
-//       Transition,
-//     });
-//   };
-
-//   const handleClose = () => {
-//     setState({
-//       ...state,
-//       open: false,
-//     });
-//   };
-
-//   return (
-//     <div>
-//       <Button onClick={handleClick(GrowTransition)}>Grow Transition</Button>
-//       <Button onClick={handleClick(Fade)}>Fade Transition</Button>
-//       <Button onClick={handleClick(SlideTransition)}>Slide Transition</Button>
-//       <Snackbar
-//         open={state.open}
-//         onClose={handleClose}
-//         TransitionComponent={state.Transition}
-//         message="I love snacks"
-//         key={state.Transition.name}
-//       />
-//     </div>
-//   );
-// }

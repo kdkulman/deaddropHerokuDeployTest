@@ -6,6 +6,7 @@ import { CreateMessageButton } from './Components/Basic Functionality/CreateMess
 import { PrimaryAppBar } from './Components/PrimaryAppBar.js';
 import { useState } from "react";
 import FunctionalityTabs from './Components/FunctionalityTabs';
+import { CreateAnonymousLink } from './Components/Basic Functionality/CreateAnonymousLink.js';
 
 function App() {
   const [username, setUsername] = useState("");
@@ -35,7 +36,7 @@ function App() {
           </Grid>
           
           <Grid item xs={12} color='white'>
-            {/* {createAnonymousLink()} */}
+            {CreateAnonymousLink()}
           </Grid>
         </Grid>
         </div>
