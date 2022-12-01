@@ -5,9 +5,11 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import CloseIcon from '@mui/icons-material/Close';
 import IconButton from '@mui/material/IconButton';
+import TextField from '@mui/material/TextField';
 
 export function CreateAnonymousLink() {
   const [open, setOpen] = React.useState(false);
+  const [link, setLink] = React.useState('');
 
   const handleClick = () => {
     setOpen(true);
@@ -17,35 +19,174 @@ export function CreateAnonymousLink() {
     if (reason === 'clickaway') {
       return;
     }
-    
+
     setOpen(false);
   };
 
+  const handleLinkChange = (event) => {
+    setLink(event.target.value);
+  };
+
   return (
-    <Box sx={{ width: '100%' }}>
-      <Paper sx={{ p: 2, my: 1, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        <Button variant="contained" onClick={handleClick}>Copy Anonymous Link</Button>
-        <Snackbar
-          anchorOrigin={{
-            vertical: 'bottom',
-            horizontal: 'left',
-          }}
-          open={open}
-          autoHideDuration={6000}
-          onClose={handleClose}
-          message="Link copied to clipboard"
-          action={
-            <React.Fragment>
-              <IconButton size="small" aria-label="close" color="inherit" onClick={handleClose}>
-                <CloseIcon fontSize="small" />
-              </IconButton>
-            </React.Fragment>
-          }
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        '& > :not(style)': { m: 1 },
+      }}
+    >
+      <Paper
+        elevation={3}
+        sx={{
+          width: '100%',
+          maxWidth: 500,
+          p: 2,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}
+      >
+        <TextField
+          id="outlined-basic"
+          label="Enter a link"
+          variant="outlined"
+          value={link}
+          onChange={handleLinkChange}
         />
+        <Button variant="contained" onClick={handleClick}>
+          Create Anonymous Link
+        </Button>
       </Paper>
+      <Snackbar
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'left',
+        }}
+        open={open}
+        autoHideDuration={6000}
+        onClose={handleClose}
+        message="Link created successfully"
+        action={
+          <>
+            <Button color="secondary" size="small" onClick={handleClose}>
+              UNDO
+            </Button>
+            <IconButton
+              size="small"
+              aria-label="close"
+              color="inherit"
+              onClick={handleClose}
+            >
+              <CloseIcon fontSize="small" />
+            </IconButton>
+          </>
+        }
+      />
     </Box>
   );
 }
+
+  // const [open, setOpen] = React.useState(false);
+
+  // const handleClick = () => {
+  //   setOpen(true);
+  // };
+
+  // const handleClose = (event, reason) => {
+  //   if (reason === 'clickaway') {
+  //     return;
+  //   }
+    
+  //   setOpen(false);
+  // };
+
+//   return (
+//     <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+//       <Paper elevation={3} sx={{ p: 2, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+//         <TextField
+//           id="outlined-basic"
+//           label="Outlined"
+//           variant="outlined"
+//           sx={{ width: '100%' }}
+//         />
+//         <Button variant="contained" onClick={handleClick} sx={{ mt: 2 }}>
+//           Create Anonymous Link
+//         </Button>
+//         <Snackbar
+//           anchorOrigin={{
+//             vertical: 'bottom',
+//             horizontal: 'left',
+//           }}
+//           open={open}
+//           autoHideDuration={6000}
+//           onClose={handleClose}
+//           message="Link created successfully"
+//           action={
+//             <React.Fragment>
+//               <IconButton size="small" aria-label="close" color="inherit" onClick={handleClose}>
+//                 <CloseIcon fontSize="small" />
+//               </IconButton>
+//             </React.Fragment>
+//           }
+//         />
+//       </Paper>
+//     </Box>
+//   );
+// }
+
+
+//     <Box sx={{ width: '100%' }}>
+//       <Paper sx={{ p: 2, my: 1, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+//         <Button variant="contained" onClick={handleClick}>Copy Anonymous Link</Button>
+//         <Snackbar
+//           anchorOrigin={{
+//             vertical: 'bottom',
+//             horizontal: 'left',
+//           }}
+//           open={open}
+//           autoHideDuration={6000}
+//           onClose={handleClose}
+//           message="Link copied to clipboard"
+//           action={
+//             <React.Fragment>
+//               <IconButton size="small" aria-label="close" color="inherit" onClick={handleClose}>
+//                 <CloseIcon fontSize="small" />
+//               </IconButton>
+//             </React.Fragment>
+//           }
+//         />
+//       </Paper>
+//     </Box>
+//   );
+// }
+
+// import * as React from 'react';
+// import Box from '@mui/material/Box';
+// import TextField from '@mui/material/TextField';
+
+// export default function HelperTextAligned() {
+//   return (
+//     <Box
+//       sx={{
+//         display: 'flex',
+//         alignItems: 'center',
+//         '& > :not(style)': { m: 1 },
+//       }}
+//     >
+//       <TextField
+//         helperText="Please enter your name"
+//         id="demo-helper-text-aligned"
+//         label="Name"
+//       />
+//       <TextField
+//         helperText=" "
+//         id="demo-helper-text-aligned-no-helper"
+//         label="Name"
+//       />
+//     </Box>
+//   );
+// }
 
 
   // const [state, setState] = React.useState({
