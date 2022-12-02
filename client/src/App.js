@@ -7,6 +7,7 @@ import { PrimaryAppBar } from './Components/PrimaryAppBar.js';
 import { useState } from "react";
 import FunctionalityTabs from './Components/FunctionalityTabs';
 import { CreateAnonymousLink } from './Components/Basic Functionality/CreateAnonymousLink.js';
+import { CreateFreindsList } from './Components/Basic Functionality/CreateFriendsList';
 
 function App() {
   const [username, setUsername] = useState("");
@@ -37,6 +38,10 @@ function App() {
           
           <Grid item xs={12} color='white'>
             {CreateAnonymousLink()}
+          </Grid>
+
+          <Grid item xs={12} color='black'> {/* Jashans stuff*/}
+          {CreateFreindsList()}
           </Grid>
         </Grid>
         </div>
