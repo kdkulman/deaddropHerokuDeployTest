@@ -26,22 +26,22 @@ function App() {
           justifyContent="space-around"
           alignItems="center">
           <Grid item xs={12}>
+
           </Grid>
-
           <Grid item xs={12} color='white'>
-
           </Grid>
 
           <Grid item xs={12} color='black'> {/* Jashans stuff*/}
             {CreateMessageButton()}
           </Grid>
           
-          <Grid item xs={12} color='white'>
+          <Grid item xs={12} color='white'> {/* Jashans stuff*/}
             {CreateAnonymousLink()}
           </Grid>
 
           <Grid item xs={12} color='black'> {/* Jashans stuff*/}
           {CreateFreindsList()}
+          
           </Grid>
         </Grid>
         </div>
