@@ -10,7 +10,7 @@
         "node",
         "heroku"
     ],
-    "author": "Kevin Kulman, Nicholas Zhuk",
+    "author": "Kevin Kulman",
     "license": "test",
     "dependencies": {
         "express": "^4.18.2",
