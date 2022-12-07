@@ -8,6 +8,9 @@ import { useState } from "react";
 import FunctionalityTabs from './Components/FunctionalityTabs';
 import { CreateAnonymousLink } from './Components/Basic Functionality/CreateAnonymousLink.js';
 import { CreateFreindsList } from './Components/Basic Functionality/CreateFriendsList';
+import { CreateLoginForm } from './Components/Basic Functionality/CreateLoginForm';
+import { TextField } from '@mui/material';
+import { CreateFriendsRequestList } from './Components/Basic Functionality/CreateFriendsRequestList';
 
 function App() {
   const [username, setUsername] = useState("");
@@ -41,8 +44,12 @@ function App() {
 
           <Grid item xs={12} color='black'> {/* Jashans stuff*/}
           {CreateFreindsList()}
-          
           </Grid>
+
+          <Grid item xs={12} color='white'> {/* Jashans stuff*/}
+            {CreateLoginForm()}
+          </Grid>
+
         </Grid>
         </div>
       </main>
