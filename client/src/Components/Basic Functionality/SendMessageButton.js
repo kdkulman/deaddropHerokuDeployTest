@@ -9,6 +9,10 @@ import { CreateMessageButton } from './CreateMessageButton';
 //Get text from message box and send to database
 export function fetchText() {
     let message = document.getElementById("CreateMessageTextField").value;
+    let sender = "";
+    let recipient = "";
+    let country = "";
+
 
     console.log(message);
     let headers = new Headers();
@@ -21,7 +25,14 @@ export function fetchText() {
     fetch(`https://dead-drop-app-web-service.herokuapp.com/storeMessage`, {
         method: 'POST',
         headers: headers,
-        body: JSON.stringify({ "text" : message })
+        body: JSON.stringify(
+            { 
+                "text" : message,
+                "sender" : sender,
+                "recipient" : recipient,
+                "country" : country
+            }
+        )
     }).then(response => {
         document.getElementById("CreateMessageTextField").value = "";        
         console.log(response);
