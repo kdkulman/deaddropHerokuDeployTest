@@ -4,6 +4,8 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
+import { Button } from '@mui/material';
+import CancelIcon from '@mui/icons-material/Cancel';
 
 export function CreateFreindsList() {
 
@@ -12,6 +14,8 @@ export function CreateFreindsList() {
 
   return (
     <div>
+      <Button variant="contained">Add Friend</Button>
+      <Button variant="contained">Remove Friend</Button>
     <List dense={dense}>
       {[0, 1, 2, 3].map((value) => {
         const labelId = `checkbox-list-secondary-label-${value}`;
