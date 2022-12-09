@@ -6,7 +6,6 @@ import { CreateMessageButton } from './Components/Basic Functionality/CreateMess
 import { PrimaryAppBar } from './Components/PrimaryAppBar.js';
 import { useState } from "react";
 import FunctionalityTabs from './Components/FunctionalityTabs';
-import { CreateAnonymousLink } from './Components/Basic Functionality/CreateAnonymousLink.js';
 import { CreateFreindsList } from './Components/Basic Functionality/CreateFriendsList';
 import { CreateLoginForm } from './Components/Basic Functionality/CreateLoginForm';
 import { TextField } from '@mui/material';
@@ -20,9 +19,11 @@ function App() {
     <div className="App">
       <PrimaryAppBar />
       <FunctionalityTabs />
+
       <main>
         <div>
         <Grid 
+          
           container 
           spacing={0}
           justifyContent="space-around"
@@ -30,22 +31,21 @@ function App() {
           <Grid item xs={12}>
 
           </Grid>
-          <Grid item xs={12} color='white'>
+          <Grid id="AppGridLayout" item xs={12} color='white'>
           </Grid>
 
           <Grid item xs={12} color='black'> {/* Jashans stuff*/}
-            {CreateMessageButton()}
           </Grid>
           
           <Grid item xs={12} color='white'> {/* Jashans stuff*/}
           </Grid>
 
           <Grid item xs={12} color='black'> {/* Jashans stuff*/}
-            {CreateFreindsList()}
+            {/* {CreateFreindsList()} */}
           </Grid>
 
           <Grid item xs={12} color='white'> {/* Jashans stuff*/}
-            {CreateLoginForm()}
+            {/* {CreateLoginForm()} */}
           </Grid>
 
         </Grid>
