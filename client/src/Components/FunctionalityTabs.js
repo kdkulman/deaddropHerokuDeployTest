@@ -45,8 +45,6 @@ function a11yProps(index) {
 }
 
 
-
-
 export default function BasicTabs() {
   const [value, setValue] = React.useState(0);
   //create state for user logged in
@@ -82,8 +80,8 @@ export default function BasicTabs() {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        {/* {loggedIn ? <div>Logged in as {username} ({nickname})</div> : null} */}
-        <CreateLoginForm func={pull_data}></CreateLoginForm>
+        {loggedIn ? <div>Logged in as {username} ({nickname})</div> : <CreateLoginForm func={pull_data}></CreateLoginForm>}
+        
 
       </TabPanel>
       <TabPanel value={value} index={1}>
