@@ -58,6 +58,11 @@ export function CreateAnonymousLink({url}) {
             value={url}
             unselectable='on'
             onChange={handleLinkChange}
+            fullWidth={true}
+            multiline={true}
+            rows={3}
+            rowsMax={3}
+            size="large"
           />
           <Button variant="contained" onClick={handleClick}>
             Copy Link

@@ -5,6 +5,7 @@ import SendIcon from '@mui/icons-material/Send';
 import { TextField } from '@mui/material';
 import { CreateMessageButton } from './CreateMessageButton';
 import { CreateAnonymousLink } from './CreateAnonymousLink';
+import Stack from '@mui/material/Stack';
 //body parser
 //Get text from message box and send to database
 
@@ -55,18 +56,24 @@ export function SendMessageButton() {
         return (
                 <div>
                     <TextField  id="CreateMessageTextField" 
-                                label="Enter super secret message" 
+                                label="Type secret message" 
                                 aria-label='empty textarea'
                                 variant="outlined" 
-                                style={{ backgroundColor: 'white' }}/>
-                    <IconButton aria-label="send" 
+                                style={{ backgroundColor: 'white' }}
+                                fullWidth={true}
+                                multiline={true}
+                                rows={3}
+                                rowsMax={3}
                                 size="large"
-                                onClick={async () => {
-                                    let success = await fetchText();
-                                    if (success != null) isMessageCreated(success);
-                                    console.log("url: " + success);
-
-                                }}>
+                                />
+                    <IconButton
+                        aria-label="send"
+                        onClick={() => {
+                            fetchText().then((url) => {
+                                isMessageCreated(url);
+                            });
+                        }}
+                    >
                         <SendIcon fontSize="large" />
                     </IconButton>
                 </div>
@@ -79,3 +86,51 @@ export function SendMessageButton() {
         )
     }
 }
+
+//                         aria-label="send"
+//                         onClick={() => {
+//                             fetchText().then((url) => {
+//                                 isMessageCreated(url);
+//                             });
+//                         }}
+//                     >
+//                         <SendIcon fontSize="large" />
+//                     </IconButton>
+//                 </div>
+//         )
+//     } else {
+//         return (
+//             <div>
+//                 <CreateAnonymousLink url={url}/>
+//             </div>
+//         )
+//     }
+// }
+
+
+//                                 }}>
+
+// export default function IconLabelButtons() {
+//   return (
+//     <Stack direction="row" spacing={2}>
+//       <Button variant="outlined" startIcon={<DeleteIcon />}>
+//         Delete
+//       </Button>
+//       <Button variant="contained" endIcon={<SendIcon />}>
+//         Send
+//       </Button>
+//     </Stack>
+//   );
+// }
+//                         <SendIcon fontSize="large" />
+//                     </IconButton>
+//                 </div>
+//         )
+//     } else {
+//         return (
+//             <div>
+//                 <CreateAnonymousLink url={url}/>
+//             </div>
+//         )
+//     }
+// }
