@@ -33,6 +33,7 @@ export function fetchText() {
                 "country" : country
             }
         )
+        
     }).then(response => {
         document.getElementById("CreateMessageTextField").value = "";        
         console.log(response);
