@@ -1,4 +1,5 @@
-import logo from './logo.svg';
+import logo from './logo.png';
+// import logo2 from './logo.svg';
 import * as React from 'react';
 import './CSS/App.css';
 import Grid from '@mui/material/Grid'; // Grid version 1
@@ -17,6 +18,7 @@ function App() {
 
   return (    
     <div className="App">
+      <img src={logo} className="App-logo" alt="logo" width = "50%" height = "50%"/>
       <PrimaryAppBar />
       <FunctionalityTabs />
 
