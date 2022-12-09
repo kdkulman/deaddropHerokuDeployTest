@@ -44,16 +44,9 @@ function a11yProps(index) {
   };
 }
 
-<<<<<<< Updated upstream
 
 
 
-=======
-<<<<<<< HEAD
-=======
-
->>>>>>> RegistrationBehavior
->>>>>>> Stashed changes
 export default function BasicTabs() {
   const [value, setValue] = React.useState(0);
   //create state for user logged in
@@ -89,20 +82,8 @@ export default function BasicTabs() {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-<<<<<<< HEAD
         {/* {loggedIn ? <div>Logged in as {username} ({nickname})</div> : null} */}
-<<<<<<< Updated upstream
         <CreateLoginForm func={pull_data}></CreateLoginForm>
-=======
-        <CreateLoginForm func={pull_data}>
-          {loggedIn ? <div>Logged in as {username} ({nickname})</div> : null }
-
-        </CreateLoginForm>
-=======
-        {loggedIn ? <div>Logged in as {username} ({nickname})</div> : <CreateLoginForm func={pull_data}></CreateLoginForm>}
-        
->>>>>>> RegistrationBehavior
->>>>>>> Stashed changes
 
       </TabPanel>
       <TabPanel value={value} index={1}>
