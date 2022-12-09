@@ -44,6 +44,9 @@ function a11yProps(index) {
   };
 }
 
+
+
+
 export default function BasicTabs() {
   const [value, setValue] = React.useState(0);
   //create state for user logged in
@@ -75,15 +78,12 @@ export default function BasicTabs() {
                icon={<FriendsIcon />} 
           {...a11yProps(0)} 
           />
-          <Tab label="Anonymous" icon={<GlobeIcon />} {...a11yProps(1)} />
+          <Tab label="Random People" icon={<GlobeIcon />} {...a11yProps(1)} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
         {/* {loggedIn ? <div>Logged in as {username} ({nickname})</div> : null} */}
-        <CreateLoginForm func={pull_data}>
-          {loggedIn ? <div>Logged in as {username} ({nickname})</div> : null }
-
-        </CreateLoginForm>
+        <CreateLoginForm func={pull_data}></CreateLoginForm>
 
       </TabPanel>
       <TabPanel value={value} index={1}>
