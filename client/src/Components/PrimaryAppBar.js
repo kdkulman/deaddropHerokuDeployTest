@@ -176,7 +176,7 @@ export function PrimaryAppBar() {
 
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <Search>
+            {/* <Search>
               <SearchIconWrapper>
                 <SearchIcon />
               </SearchIconWrapper>
@@ -184,14 +184,14 @@ export function PrimaryAppBar() {
                 placeholder="Friend search"
                 inputProps={{ 'aria-label': 'search' }}
               />
-            </Search>
-            <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+            </Search> */}
+            {/* <IconButton size="large" aria-label="show 4 new mails" color="inherit">
               <Badge badgeContent={4} color="error">
                 <MailIcon />
               </Badge>
-            </IconButton>
+            </IconButton> */}
 
-            {ShowAccountCircle}
+            {/* {ShowAccountCircle} */}
 
           </Box>
           <Box sx={{ display: { xs: 'flex', md: 'none' } }}>

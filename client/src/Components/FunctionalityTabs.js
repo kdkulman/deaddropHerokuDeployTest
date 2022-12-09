@@ -11,10 +11,9 @@ export default function FunctionalityTabs() {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-  
+
   return (
     <Tabs value={value} onChange={handleChange} aria-label="icon tabs example" centered>
-      <Tab icon={<MessageIcon />} aria-label="message" />
       <Tab icon={<GlobeIcon />} aria-label="globe" />
       <Tab icon={<FriendsIcon />} aria-label="friends" />
     </Tabs>
