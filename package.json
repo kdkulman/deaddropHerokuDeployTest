@@ -5,6 +5,7 @@
     "main": "web.js",
     "scripts": {
         "start": "cd client && npm start"
+        
     },
     
     "keywords": [

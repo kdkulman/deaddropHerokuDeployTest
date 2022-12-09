@@ -8,6 +8,8 @@ import { CreateMessageButton } from './Basic Functionality/CreateMessageButton.j
 import GlobeIcon from '@mui/icons-material/Public';
 import MessageIcon from '@mui/icons-material/Email';
 import FriendsIcon from '@mui/icons-material/People';
+import CreateLoginForm from './Basic Functionality/CreateLoginForm.js';
+
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -42,12 +44,26 @@ function a11yProps(index) {
   };
 }
 
+
+
+
 export default function BasicTabs() {
   const [value, setValue] = React.useState(0);
+  //create state for user logged in
+  const [loggedIn, isLoggedIn] = React.useState(false);
+  const [username, setUser] = React.useState(null);
+  const [nickname, setNickname] = React.useState(null);
+  
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
+  const pull_data = (data) => {
+    setUser(data.username)
+    setNickname(data.nickname)
+    isLoggedIn(true) // LOGS DATA FROM CHILD 
+  }
 
   //put create message button under id AppGridLayout
   return (
@@ -58,11 +74,17 @@ export default function BasicTabs() {
               borderColor="transparent"
               onChange={handleChange} 
               aria-label="basic tabs example">
-          <Tab label="Friends" icon={<FriendsIcon />} {...a11yProps(0)} />
+          <Tab label="Friends" 
+               icon={<FriendsIcon />} 
+          {...a11yProps(0)} 
+          />
           <Tab label="Random People" icon={<GlobeIcon />} {...a11yProps(1)} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
+        {/* {loggedIn ? <div>Logged in as {username} ({nickname})</div> : null} */}
+        <CreateLoginForm func={pull_data}></CreateLoginForm>
+
       </TabPanel>
       <TabPanel value={value} index={1}>
         {CreateMessageButton()}

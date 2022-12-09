@@ -8,7 +8,7 @@ import { Box, Button } from '@mui/material';
 import CheckIcon from '@mui/icons-material/Check';
 import ClearIcon from '@mui/icons-material/Clear';
 
-export function CreateFreindsList() {
+export function CreateFriendsList() {
 
   return (
     <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
