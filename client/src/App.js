@@ -38,7 +38,6 @@ function App() {
           </Grid>
           
           <Grid item xs={12} color='white'> {/* Jashans stuff*/}
-            {CreateAnonymousLink()}
           </Grid>
 
           <Grid item xs={12} color='black'> {/* Jashans stuff*/}

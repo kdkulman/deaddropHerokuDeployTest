@@ -4,25 +4,24 @@ import IconButton from '@mui/material/IconButton';
 import SendIcon from '@mui/icons-material/Send';
 import { TextField } from '@mui/material';
 import { CreateMessageButton } from './CreateMessageButton';
-
-
+import { CreateAnonymousLink } from './CreateAnonymousLink';
+//body parser
 //Get text from message box and send to database
-export function fetchText() {
+
+export async function fetchText() {
     let message = document.getElementById("CreateMessageTextField").value;
     let sender = "";
     let recipient = "";
     let country = "";
 
-
-    console.log(message);
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     headers.append('Accept', 'application/json');
-    headers.append('Access-Control-Allow-Origin', 'http://localhost:5000');
+    headers.append('Access-Control-Allow-Origin', 'http://localhost:5001');
     headers.append('Access-Control-Allow-Credentials', 'true');
     headers.append('GET', 'POST', 'OPTIONS');
     
-    fetch(`https://dead-drop-app-web-service.herokuapp.com/storeMessage`, {
+    const response = await fetch(`https://dead-drop-app-web-service.herokuapp.com/storeMessage`, {
         method: 'POST',
         headers: headers,
         body: JSON.stringify(
@@ -33,28 +32,26 @@ export function fetchText() {
                 "country" : country
             }
         )
-        
-    }).then(response => {
-        document.getElementById("CreateMessageTextField").value = "";        
-        console.log(response);
-    }).catch(error => {
-        console.log(error);
-    }
-    );
-
+    });
+    
     if (message == "") {
         alert("Please enter a message");
-        return true;
+        return null;
     } else {
-        return false;
+        return await response.json().then((data) => {
+            console.log("response: " + response);
+            console.log("response.json: " + response.json());
+            console.log("data: " + data.url);
+            return JSON.stringify(data.url);
+            
+        });
     }
-
 }
 
 export function SendMessageButton() {
-    const [showButton, setShowButton] = useState(true);
+    const [url, isMessageCreated] = useState("");
 
-    if (showButton) {
+    if (url == "") {
         return (
                 <div>
                     <TextField  id="CreateMessageTextField" 
@@ -64,19 +61,20 @@ export function SendMessageButton() {
                                 style={{ backgroundColor: 'white' }}/>
                     <IconButton aria-label="send" 
                                 size="large"
-                                onClick={() => {
-                                    let success = fetchText();
-                                    setShowButton(success);
+                                onClick={async () => {
+                                    let success = await fetchText();
+                                    if (success != null) isMessageCreated(success);
+                                    console.log("url: " + success);
+
                                 }}>
                         <SendIcon fontSize="large" />
                     </IconButton>
                 </div>
         )
-    
     } else {
         return (
             <div>
-                <CreateMessageButton />
+                <CreateAnonymousLink url={url}/>
             </div>
         )
     }
