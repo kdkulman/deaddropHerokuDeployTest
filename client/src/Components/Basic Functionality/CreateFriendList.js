@@ -10,11 +10,13 @@ import ClearIcon from '@mui/icons-material/Clear';
 //import FriendRequestListItem from './FriendRequestListItem';
 import { fetchFriendList } from './fetchFriendList';
 import MessageIcon from '@mui/icons-material/Message';
+import { CreateMessageList } from './CreateMessageList';
 
 
 export function CreateFriendList({user}) {
   const [username, setUsername] = React.useState(user);
   const [friendList, setFriendList] = React.useState(null);
+  const [sender, setSender] = React.useState(null);
 
   React.useEffect(() => {
     async function fetchData() {
@@ -27,6 +29,15 @@ export function CreateFriendList({user}) {
     fetchData();
   }
   , [username]);
+
+  const messageListHtml = (sender) => {
+    if (sender != null) {
+      return (
+        <CreateMessageList sender={sender} username={username} />
+      ) 
+    }
+  }
+
 
   if (friendList == null) {
     return (
@@ -41,18 +52,23 @@ export function CreateFriendList({user}) {
     //return a list of FriendRequestListItems
     
     return (
-
-      <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
-        <h1>Friend List</h1>
-        {friendList.map((friendList) => (
-          <ListItem>
-            <ListItemText primary={friendList} />
-            <Button variant="contained">
-              <MessageIcon />
-            </Button>
-          </ListItem>
+        <div>
+        <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+          <h1>Friend List</h1>
+          {friendList.map((friend) => (
+            <ListItem>
+              <ListItemText primary={friend} />
+              <Button variant="contained"
+                      onClick={ () => 
+                        setSender(friend)
+                      }>
+                <MessageIcon />
+              </Button>
+            </ListItem>
         ))}
-      </List>
+        </List>
+        {messageListHtml(sender)} 
+      </div>
     );
   }
 }
