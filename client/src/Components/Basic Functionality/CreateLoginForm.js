@@ -3,6 +3,8 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { Button } from '@mui/material';
 import {CreateFriendRequestList} from './CreateFriendRequestList';
+import {CreateFriendList} from './CreateFriendList';
+
 
 //Call to web service to create account
 export async function createAccount(register) {
@@ -107,6 +109,7 @@ export default function CreateLoginForm() {
             <div>
                 <h1>Welcome {nickname} </h1>
                 <h4>Username: {username}</h4>
+                <CreateFriendList user={username} />
                 <CreateFriendRequestList user={username} />
             </div>
         )
