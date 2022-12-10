@@ -2,6 +2,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { Button } from '@mui/material';
+import {CreateFriendRequestList} from './CreateFriendRequestList';
 
 //Call to web service to create account
 export async function createAccount(register) {
@@ -44,7 +45,6 @@ export async function createAccount(register) {
     
     return await response.json().then((data) => {
         //send back username and nickname
-        console.log(data);
         let returnUsername = data.username;
         // returnUsername = returnUsername.substring(1, returnUsername.length - 1);
         let returnNickname = data.nickname;
@@ -58,57 +58,58 @@ export default function CreateLoginForm() {
     const [loggedIn, setLoggedIn] = React.useState(false);
     const [username, setUsername] = React.useState("");
     const [nickname, setNickname] = React.useState("");
-        if (!loggedIn){
+    if (!loggedIn){
 
-            return (
-                <Box
-                    sx={{
-                        '& > :not(style)': { m: 1, width: '25ch' },
-                    }}
-                    noValidate
-                    autoComplete="off"
-                >
-                    <TextField id="usernameTextField" label="Username" variant="outlined" />
-                    <TextField id="passwordTextField" label="Password" variant="outlined" />
-                    <TextField id="nicknameTextField" label="Nickname" variant="outlined" />
-                    <Button variant="contained"
-                            onClick={async () => {
-                                let success = await createAccount(false);
-                                if (success != null) setLoggedIn(true);
-                                //console.log("login status: " + loggedIn);
-                                setUsername(success[0]);
-                                setNickname(success[1]);
-                            }}>Login</Button>
-
-                    <Button 
-                        variant="contained"
+        return (
+            <Box
+                sx={{
+                    '& > :not(style)': { m: 1, width: '25ch' },
+                }}
+                noValidate
+                autoComplete="off"
+            >
+                <TextField id="usernameTextField" label="Username" variant="outlined" />
+                <TextField id="passwordTextField" label="Password" variant="outlined" />
+                <TextField id="nicknameTextField" label="Nickname" variant="outlined" />
+                <Button variant="contained"
                         onClick={async () => {
-                            let success = await createAccount(true);
+                            let success = await createAccount(false);
                             if (success != null) setLoggedIn(true);
                             //console.log("login status: " + loggedIn);
                             setUsername(success[0]);
                             setNickname(success[1]);
-                        }}>
+                        }}>Login</Button>
 
-                    Create Account
+                <Button 
+                    variant="contained"
+                    onClick={async () => {
+                        let success = await createAccount(true);
+                        if (success != null) setLoggedIn(true);
+                        //console.log("login status: " + loggedIn);
+                        setUsername(success[0]);
+                        setNickname(success[1]);
+                    }}>
 
-                    {/* <form name="myForm" id="myForm" onsubmit="return validateForm()">
-                        Pets: <br />
-                        <input type="text" id="Username" />
-                        <input type="button" id="Password" value="Create" />
-                        <br/>
-                        </form> THIS CODE IS GONNA BE USED LATER ON WHEN WE HIT CREATE ACCOUNT IT WILL TAKE 
-                        US TO A NEW PAGE AND THERE WE CAN ENTER THE CREDENTIALS FOR THE NEW ACCOUNT INFO*/}
-                    </Button>
-                </Box>
-            );
-        } else {
-            return (
-                <div>
-                    <h1>Welcome {nickname} </h1>
-                    <h4>Username: {username}</h4>
-                </div>
-            )
-        }
+                Create Account
 
+                {/* <form name="myForm" id="myForm" onsubmit="return validateForm()">
+                    Pets: <br />
+                    <input type="text" id="Username" />
+                    <input type="button" id="Password" value="Create" />
+                    <br/>
+                    </form> THIS CODE IS GONNA BE USED LATER ON WHEN WE HIT CREATE ACCOUNT IT WILL TAKE 
+                    US TO A NEW PAGE AND THERE WE CAN ENTER THE CREDENTIALS FOR THE NEW ACCOUNT INFO*/}
+                </Button>
+            </Box>
+        );
+    } else {
+        return (
+            <div>
+                <h1>Welcome {nickname} </h1>
+                <h4>Username: {username}</h4>
+                <CreateFriendRequestList user={username} />
+            </div>
+        )
     }
+
+}

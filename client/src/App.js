@@ -7,7 +7,7 @@ import { CreateMessageButton } from './Components/Basic Functionality/CreateMess
 import { PrimaryAppBar } from './Components/PrimaryAppBar.js';
 import { useState } from "react";
 import FunctionalityTabs from './Components/FunctionalityTabs';
-import { CreateFreindsList } from './Components/Basic Functionality/CreateFriendsList';
+import { CreateFriendRequestList} from './Components/Basic Functionality/CreateFriendRequestList';
 import { CreateLoginForm } from './Components/Basic Functionality/CreateLoginForm';
 import { TextField } from '@mui/material';
 
@@ -41,11 +41,7 @@ function App() {
           
           <Grid item xs={12} color='white'> {/* Jashans stuff*/}
           </Grid>
-
-          <Grid item xs={12} color='black'> {/* Jashans stuff*/}
-            {/* {CreateFreindsList()} */}
-          </Grid>
-
+          
           <Grid item xs={12} color='white'> {/* Jashans stuff*/}
             {/* {CreateLoginForm()} */}
           </Grid>
