@@ -4,11 +4,11 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import { CreateMessageButton } from './Basic Functionality/CreateMessageButton.js';
+import { CreateMessageButton } from './Anonymous Functionality/CreateMessageButton.js';
 import GlobeIcon from '@mui/icons-material/Public';
 import MessageIcon from '@mui/icons-material/Email';
 import FriendsIcon from '@mui/icons-material/People';
-import CreateLoginForm from './Basic Functionality/CreateLoginForm.js';
+import CreateLoginForm from './Authentication/LoginForm.js';
 
 
 function TabPanel(props) {

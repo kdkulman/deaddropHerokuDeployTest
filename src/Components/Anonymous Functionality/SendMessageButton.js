@@ -4,7 +4,7 @@ import IconButton from '@mui/material/IconButton';
 import SendIcon from '@mui/icons-material/Send';
 import { TextField } from '@mui/material';
 import { CreateMessageButton } from './CreateMessageButton';
-import { CreateAnonymousLink } from './CreateAnonymousLink';
+import { CreateAnonymousLink } from './MessageUrl';
 import Stack from '@mui/material/Stack';
 //body parser
 //Get text from message box and send to database

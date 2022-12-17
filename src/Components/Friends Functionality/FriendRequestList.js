@@ -8,7 +8,7 @@ import { Box, Button } from '@mui/material';
 import CheckIcon from '@mui/icons-material/Check';
 import ClearIcon from '@mui/icons-material/Clear';
 import FriendRequestListItem from './FriendRequestListItem';
-import { fetchFriendRequestList } from './fetchFriendRequestList';
+import { fetchFriendRequestList } from '../../Fetch/fetchFriendRequestList';
 
 
 export function CreateFriendRequestList({user}) {

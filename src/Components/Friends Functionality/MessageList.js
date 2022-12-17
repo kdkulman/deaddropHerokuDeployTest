@@ -8,67 +8,43 @@ import { Box, Button } from '@mui/material';
 import CheckIcon from '@mui/icons-material/Check';
 import ClearIcon from '@mui/icons-material/Clear';
 //import FriendRequestListItem from './FriendRequestListItem';
-import { fetchFriendList } from './fetchFriendList';
+import { fetchMessageList } from '../../Fetch/fetchMessageList';
 import MessageIcon from '@mui/icons-material/Message';
-import { CreateMessageList } from './CreateMessageList';
 
 
-export function CreateFriendList({user}) {
-  const [username, setUsername] = React.useState(user);
-  const [friendList, setFriendList] = React.useState(null);
-  const [sender, setSender] = React.useState(null);
+export function CreateMessageList({username, sender}) {
+  const [messageList, setMessageList] = React.useState(null);
 
   React.useEffect(() => {
     async function fetchData() {
-      const friendList = await fetchFriendList(username);
-      setFriendList(friendList);
+      const messageList = await fetchMessageList(username, sender);
+      setMessageList(messageList);
       //convert friendRequests to array      
-      console.log(friendList);
       
     }
     fetchData();
   }
-  , [username]);
+  , [username, sender]);
 
-  const messageListHtml = (sender) => {
-    if (sender != null) {
-      return (
-        <CreateMessageList sender={sender} username={username} />
-      ) 
-    }
-  }
-
-
-  if (friendList == null) {
+  if (messageList == null) {
     return (
       <Box>
         <h1>Loading...</h1>
       </Box>
     );
   } else {
-    //{friendList.at(0)}
 
-    //create a FriendRequestListItem for each friend request in friendRequests
-    //return a list of FriendRequestListItems
-    
     return (
-        <div>
-        <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
-          <h1>Friend List</h1>
-          {friendList.map((friend) => (
-            <ListItem>
-              <ListItemText primary={friend} />
-              <Button variant="contained"
-                      onClick={ () => 
-                        setSender(friend)
-                      }>
-                <MessageIcon />
-              </Button>
-            </ListItem>
+
+      <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+        <h1>New Messages</h1>
+        {messageList.map((text) => (
+          <ListItem>
+            <ListItemText primary={text} />
+
+          </ListItem>
         ))}
-        </List>
-        {messageListHtml(sender)} 
-      </div>
+      </List>
     );
   }
 }
