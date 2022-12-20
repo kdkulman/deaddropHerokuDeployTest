@@ -6,7 +6,6 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { CreateMessageButton } from './Anonymous Functionality/CreateMessageButton.js';
 import GlobeIcon from '@mui/icons-material/Public';
-import MessageIcon from '@mui/icons-material/Email';
 import FriendsIcon from '@mui/icons-material/People';
 import CreateLoginForm from './Authentication/LoginForm.js';
 
@@ -45,8 +44,6 @@ function a11yProps(index) {
 }
 
 
-
-
 export default function BasicTabs() {
   const [value, setValue] = React.useState(0);
   //create state for user logged in
@@ -65,7 +62,6 @@ export default function BasicTabs() {
     isLoggedIn(true) // LOGS DATA FROM CHILD 
   }
 
-  //put create message button under id AppGridLayout
   return (
 
     <Box sx={{ width: '100%' }}>
@@ -92,50 +88,3 @@ export default function BasicTabs() {
     </Box>
   );
 }
-
-
-// import * as React from 'react';
-// import Tabs from '@mui/material/Tabs';
-// import Tab from '@mui/material/Tab';
-// import GlobeIcon from '@mui/icons-material/Public';
-// import MessageIcon from '@mui/icons-material/Email';
-// import FriendsIcon from '@mui/icons-material/People';
-// import { CreateMessageButton } from './Basic Functionality/CreateMessageButton';
-
-// export default function FunctionalityTabs() {
-//   //create tabs for each functionality with content when you switch tabs
-//   const [value, setValue] = React.useState(0);
-
-//   const handleChange = (event, newValue) => {
-//     setValue(newValue);
-//   }
-
-//   //create enums for each tab
-//   const TABS = {
-//     FRIENDS: 0,
-//     RANDOM: 1,
-//   }
-
-//   return (
-//     <Tabs
-//       value={value}
-//       onChange={handleChange}
-//       indicatorColor="primary"
-//       textColor="primary"
-//       centered
-//     >
-//       <Tab label="Friends" icon={<FriendsIcon />}>
-        
-//       </Tab>
-//       <Tab label="Random People" icon={<GlobeIcon />} >
-
-//         <div>{CreateMessageButton()}</div>
-//       </Tab>
-//     </Tabs>
-    
-    
-//   );
-
-
-
-// }

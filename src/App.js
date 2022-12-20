@@ -18,7 +18,6 @@ function App() {
       <FunctionalityTabs />
 
       <main>
-        <div>
         <Grid 
           
           container 
@@ -36,12 +35,8 @@ function App() {
           
           <Grid item xs={12} color='white'> {/* Jashans stuff*/}
           </Grid>
-          
-          <Grid item xs={12} color='white'> {/* Jashans stuff*/}
-          </Grid>
 
         </Grid>
-        </div>
       </main>
     </div>
   );

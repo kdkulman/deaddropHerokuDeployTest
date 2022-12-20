@@ -2,7 +2,7 @@ import * as React from 'react';
 import AddIcon from '@mui/icons-material/Add';
 import Fab from '@mui/material/Fab';
 import { useState } from "react";
-import { SendMessageButton } from './SendMessageButton.js';
+import { SendMessageButton } from './SendMessage.js';
 
 import ReactDOM from "react-dom/client";
 
