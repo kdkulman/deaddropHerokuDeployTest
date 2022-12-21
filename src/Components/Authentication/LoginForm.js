@@ -1,9 +1,10 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
+import headers from '../../Fetch/headers';
 import TextField from '@mui/material/TextField';
 import { Button } from '@mui/material';
 import {CreateFriendRequestList} from '../Friends Functionality/FriendRequestList';
-import {CreateFriendList} from '../Friends Functionality/FriendList';
+import FriendList from '../Friends Functionality/FriendList';
 
 
 //Call to web service to create account
@@ -11,13 +12,6 @@ export async function createAccount(register) {
     let username = document.getElementById("usernameTextField").value;
     let password = document.getElementById("passwordTextField").value;
     let nickname = document.getElementById("nicknameTextField").value;
-
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    headers.append('Accept', 'application/json');
-    headers.append('Access-Control-Allow-Origin', 'http://localhost:5001');
-    headers.append('Access-Control-Allow-Credentials', 'true');
-    headers.append('GET', 'POST', 'OPTIONS');
 
     let response = "" 
     if (register){
@@ -93,15 +87,7 @@ export default function CreateLoginForm() {
                     }}>
 
                 Create Account
-
-                {/* <form name="myForm" id="myForm" onsubmit="return validateForm()">
-                    Pets: <br />
-                    <input type="text" id="Username" />
-                    <input type="button" id="Password" value="Create" />
-                    <br/>
-                    </form> THIS CODE IS GONNA BE USED LATER ON WHEN WE HIT CREATE ACCOUNT IT WILL TAKE 
-                    US TO A NEW PAGE AND THERE WE CAN ENTER THE CREDENTIALS FOR THE NEW ACCOUNT INFO*/}
-                </Button>
+                 </Button>
             </Box>
         );
     } else {
@@ -109,7 +95,7 @@ export default function CreateLoginForm() {
             <div>
                 <h1>Welcome {nickname} </h1>
                 <h4>Username: {username}</h4>
-                <CreateFriendList user={username} />
+                <FriendList user={username} />
                 <CreateFriendRequestList user={username} />
             </div>
         )

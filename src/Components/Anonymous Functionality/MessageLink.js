@@ -6,9 +6,10 @@ import Paper from '@mui/material/Paper';
 import CloseIcon from '@mui/icons-material/Close';
 import IconButton from '@mui/material/IconButton';
 import TextField from '@mui/material/TextField';
-import { CreateMessageButton } from './CreateMessageButton.js';
+import MessageBox from './MessageBox.js';
 
-export function CreateAnonymousLink({url}) {
+
+export default function MessageLink({url}) {
   url = url.replace(/['"]+/g, '');
   const [open, setOpen] = React.useState(false);
   const [link, setLink] = React.useState('');
@@ -94,7 +95,7 @@ export function CreateAnonymousLink({url}) {
         } else {
           return (
             <div>                
-              <CreateMessageButton />
+              <MessageBox />
             </div>
           );
         }

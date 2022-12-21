@@ -4,7 +4,7 @@ import './CSS/App.css';
 import Grid from '@mui/material/Grid'; // Grid version 1
 import { PrimaryAppBar } from './Components/PrimaryAppBar.js';
 import { useState } from "react";
-import FunctionalityTabs from './Components/FunctionalityTabs';
+import FunctionalityTabs from './Components/AppTabs';
 
 function App() {
   const [username, setUsername] = useState("");

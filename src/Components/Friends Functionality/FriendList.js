@@ -13,7 +13,7 @@ import MessageIcon from '@mui/icons-material/Message';
 import { CreateMessageList } from './MessageList';
 
 
-export function CreateFriendList({user}) {
+export default function FriendList({user}) {
   const [username, setUsername] = React.useState(user);
   const [friendList, setFriendList] = React.useState(null);
   const [sender, setSender] = React.useState(null);
@@ -22,7 +22,6 @@ export function CreateFriendList({user}) {
     async function fetchData() {
       const friendList = await fetchFriendList(username);
       setFriendList(friendList);
-      //convert friendRequests to array      
       console.log(friendList);
       
     }
@@ -72,17 +71,3 @@ export function CreateFriendList({user}) {
     );
   }
 }
-
-
-
-
-
-// THIS CODE IS GOING TO NEED A EXPORT CREATEALLFRIENDS, CREATEPENDINGFRIENDS, CREATEADDNEWFRIENDS AND CREATEBLOCKEDFRIENDS
-// AND THEN WE WILL HAVE TO IMPORT THEM INTO THE FRIENDS PAGE AND THEN RENDER THEM THERE
-
-// WE WILL NEED TO MAKE BUTTONS FOR EACH OF THE FRIENDS AND THEN WE WILL NEED TO MAKE A FUNCTION THAT WILL ALLOW US TO ADD A FRIEND
-// AND THEN WE WILL NEED TO MAKE A FUNCTION THAT WILL ALLOW US TO BLOCK A FRIEND
-
-// WE WILL NEED TO MAKE A FUNCTION THAT WILL ALLOW US TO ADD A FRIEND
-
-// WE WILL NEED TO MAKE A FUNCTION THAT WILL ALLOW US TO BLOCK A FRIEND

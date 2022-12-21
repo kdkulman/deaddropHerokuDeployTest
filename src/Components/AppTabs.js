@@ -4,10 +4,18 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import { CreateMessageButton } from './Anonymous Functionality/CreateMessageButton.js';
+import MessageBox from './Anonymous Functionality/MessageBox.js';
+// import TabPanel from '@mui/lab/TabPanel';
+
+//Icons
 import GlobeIcon from '@mui/icons-material/Public';
 import FriendsIcon from '@mui/icons-material/People';
+import AccountIcon from '@mui/icons-material/AccountCircle';
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
+
 import CreateLoginForm from './Authentication/LoginForm.js';
+import FriendList from './Friends Functionality/FriendList.js';
+import { PersonAdd } from '@mui/icons-material';
 
 
 function TabPanel(props) {
@@ -43,11 +51,9 @@ function a11yProps(index) {
   };
 }
 
-
-export default function BasicTabs() {
+export default function AppTabs() {
   const [value, setValue] = React.useState(0);
   //create state for user logged in
-  const [loggedIn, isLoggedIn] = React.useState(false);
   const [username, setUser] = React.useState(null);
   const [nickname, setNickname] = React.useState(null);
   
@@ -59,7 +65,6 @@ export default function BasicTabs() {
   const pull_data = (data) => {
     setUser(data.username)
     setNickname(data.nickname)
-    isLoggedIn(true) // LOGS DATA FROM CHILD 
   }
 
   return (
@@ -69,22 +74,34 @@ export default function BasicTabs() {
         <Tabs value={value} 
               borderColor="transparent"
               onChange={handleChange} 
-              aria-label="basic tabs example">
+              centered>
+                
+          <Tab label="Send Anonymously" 
+            icon={<GlobeIcon />} {...a11yProps(0)} />
+
+          <Tab label="Account" 
+            icon={<AccountIcon />} {...a11yProps(1)} />   
+
           <Tab label="Friends" 
-               icon={<FriendsIcon />} 
-          {...a11yProps(0)} 
-          />
-          <Tab label="Random People" icon={<GlobeIcon />} {...a11yProps(1)} />
+            icon={<FriendsIcon />} {...a11yProps(2)} 
+            disabled={(username == null) ? "true" : "false"}/>
+
+          <Tab label="Friend Requests" 
+            icon={<PersonAddIcon />} {...a11yProps(3)} 
+            disabled={(username == null) ? "true" : "false"}/>
+
         </Tabs>
       </Box>
+
       <TabPanel value={value} index={0}>
-        {/* {loggedIn ? <div>Logged in as {username} ({nickname})</div> : null} */}
-        <CreateLoginForm func={pull_data}></CreateLoginForm>
+        <MessageBox />
+      </TabPanel>
+
+      <TabPanel value={value} index={1}>
+        {(username == null) ? <CreateLoginForm func={pull_data} /> : <FriendList />}
 
       </TabPanel>
-      <TabPanel value={value} index={1}>
-        {CreateMessageButton()}
-      </TabPanel>
+
     </Box>
   );
 }

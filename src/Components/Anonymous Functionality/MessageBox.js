@@ -3,11 +3,7 @@ import { useState } from "react";
 import IconButton from '@mui/material/IconButton';
 import SendIcon from '@mui/icons-material/Send';
 import { TextField } from '@mui/material';
-import { CreateMessageButton } from './CreateMessageButton';
-import { CreateAnonymousLink } from './MessageUrl';
-import Stack from '@mui/material/Stack';
-//body parser
-//Get text from message box and send to database
+import MessageLink from './MessageLink';
 
 export async function fetchText() {
     let message = document.getElementById("CreateMessageTextField").value;
@@ -49,7 +45,7 @@ export async function fetchText() {
     }
 }
 
-export function SendMessageButton() {
+export default function MessageBox() {
     const [url, isMessageCreated] = useState("");
 
     if (url == "") {
@@ -81,56 +77,8 @@ export function SendMessageButton() {
     } else {
         return (
             <div>
-                <CreateAnonymousLink url={url}/>
+                <MessageLink url={url}/>
             </div>
         )
     }
 }
-
-//                         aria-label="send"
-//                         onClick={() => {
-//                             fetchText().then((url) => {
-//                                 isMessageCreated(url);
-//                             });
-//                         }}
-//                     >
-//                         <SendIcon fontSize="large" />
-//                     </IconButton>
-//                 </div>
-//         )
-//     } else {
-//         return (
-//             <div>
-//                 <CreateAnonymousLink url={url}/>
-//             </div>
-//         )
-//     }
-// }
-
-
-//                                 }}>
-
-// export default function IconLabelButtons() {
-//   return (
-//     <Stack direction="row" spacing={2}>
-//       <Button variant="outlined" startIcon={<DeleteIcon />}>
-//         Delete
-//       </Button>
-//       <Button variant="contained" endIcon={<SendIcon />}>
-//         Send
-//       </Button>
-//     </Stack>
-//   );
-// }
-//                         <SendIcon fontSize="large" />
-//                     </IconButton>
-//                 </div>
-//         )
-//     } else {
-//         return (
-//             <div>
-//                 <CreateAnonymousLink url={url}/>
-//             </div>
-//         )
-//     }
-// }
