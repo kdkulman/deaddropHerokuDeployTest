@@ -16,7 +16,7 @@ function App() {
     <div className="App">
       <img src={logo} className="App-logo" alt="logo" width = "50%" height = "50%"/>
       <PrimaryAppBar />
-      <FunctionalityTabs />
+      {/* <FunctionalityTabs /> */}
 
       <main>
         <Grid 
